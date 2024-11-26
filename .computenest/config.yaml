@@ -1,0 +1,16 @@
+Service:
+  RegionId: cn-hangzhou
+  DeployType: ros
+  DeployMetadata:
+    ServiceInstanceNameRule:
+      Prefix: PHP-
+    TemplateConfigs:
+      - Name: 选择ECS实例（Linux）
+        Url: 'ros_templates/template-select-ecs.yaml'
+      - Name: 新建ECS实例
+        Url: 'ros_templates/template-create-ecs.yaml'
+  ServiceType: private
+  ServiceInfo:
+    Locale: zh-CN
+    ShortDescription: PHP是Hypertext Preprocessor(超文本预处理器)的缩写，源自于“PHP/FI”的工程，在它的起源初期主要用于统汁自己网站的访问者，后来用c语言进行了重新编写，拥有了自己的访问文件和数据库功能。
+    Image: 'resources/icons/service_logo.png'
