@@ -58,7 +58,7 @@ PHP运行环境需要对ECS、VPC等资源进行访问和创建操作，若您�
     <img src="3.jpg" width="100%" align="bottom"/>
 3. 点击立即创建，等待服务实例创建完成。服务实例创建成功后，进入服务实例资源页。
     <img src="4.jpg" width="100%" align="bottom"/>
-4. 在ECS中执行命令查看Docker安装结果。
+4. 在ECS中执行命令查看PHP安装结果。
     ```shell
     php -v
     ```
