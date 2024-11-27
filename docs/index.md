@@ -1,131 +1,65 @@
-# Demo服务实例部署文档
+# 快速部署PHP运行环境
 
 ## 概述
 
-`(服务概述内容)`。
+PHP是Hypertext Preprocessor(超文本预处理器)的缩写，源自于“PHP/FI”的工程，在它的起源初期主要用于统汁自己网站的访问者，后来用c语言进行了重新编写，拥有了自己的访问文件和数据库功能。详情请查看[PHP官网](https://www.php.net/)。
 
-```
-eg：
-
-Demo服务是计算巢提供的示例。
-本文向您介绍如何开通计算巢上的`Demo`服务，以及部署流程和使用说明。
-```
+本服务支持在已有的ECS实例（Linux）上部署和新建ECS实例（Linux）部署。
 
 ## 计费说明
 
-`(计费说明内容)`
-
-```
-eg:
-
-Demo在计算巢上的费用主要涉及：
+PHP运行环境在计算巢上部署的费用主要涉及：
 
 - 所选vCPU与内存规格
-- 系统盘类型及容量
+- 磁盘容量
 - 公网带宽
 
-计费方式包括：
-
-- 按量付费（小时）
-- 包年包月
-
-目前提供如下实例：
-
-| 规格族 | vCPU与内存 | 系统盘 | 公网带宽 |
-| --- | --- | --- | --- |
-| ecs.r6.xlarge | 内存型r6，4vCPU 32GiB | ESSD云盘 200GiB PL0 | 固定带宽1Mbps |
+计费方式：按量付费（小时）
 
 预估费用在创建实例时可实时看到。
-如需更多规格、其他服务（如集群高可用性要求、企业级支持服务等），请联系我们 [mailto:xx@xx.com](mailto:xx@xx.com)。
-
-```
-
-## 部署架构
-
-`(部署概述内容)`
 
 ## RAM账号所需权限
 
-`(权限策略内容)`
+PHP运行环境需要对ECS、VPC等资源进行访问和创建操作，若您使用RAM用户创建服务实例，需要在创建服务实例前，对使用的RAM用户的账号添加相应资源的权限。添加RAM权限的详细操作，请参见[为RAM用户授权](https://help.aliyun.com/document_detail/121945.html)
+。所需权限如下表所示。
 
-```
-eg: 
+| 权限策略名称                          | 备注                         |
+|---------------------------------|----------------------------|
+| AliyunECSFullAccess             | 管理云服务器服务（ECS）的权限           |
+| AliyunVPCFullAccess             | 管理专有网络（VPC）的权限             |
+| AliyunROSFullAccess             | 管理资源编排服务（ROS）的权限           |
+| AliyunComputeNestUserFullAccess | 管理计算巢服务（ComputeNest）的用户侧权限 |
+| AliyunCloudMonitorFullAccess    | 管理云监控（CloudMonitor）的权限     |
 
-Demo服务需要对ECS、VPC等资源进行访问和创建操作，若您使用RAM用户创建服务实例，需要在创建服务实例前，对使用的RAM用户的账号添加相应资源的权限。添加RAM权限的详细操作，请参见[为RAM用户授权](https://help.aliyun.com/document_detail/121945.html)。所需权限如下表所示。
+## 选择ECS实例部署
+
+选择ECS实例部署支持Linux操作系统。
+
+### 前提条件
+1. 所选ECS实例可以访问公网
+2. 所选ECS实例在运行中，如实例刚启动请稍等片刻
+3. 系统兼容性：Alibaba Cloud Linux 3.2104 LTS/CentOS 7.7/CentOS 7.8/CentOS 7.9/Ubuntu 20.04/Ubuntu 22.04
+### 操作步骤
+1. 单击[部署链接](https://computenest.console.aliyun.com/service/instance/create/default?type=user&ServiceName=PHP%20%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83)，进入服务实例部署界面。
+2. 选择目标ECS实例，点击 下一步：确认订单。
+    <img src="1.jpg" width="100%" align="bottom"/>
+3. 点击 立即创建，等待服务实例创建完成。服务实例创建成功后，进入服务实例详情页。在概览页可获取安装日志。 
+    <img src="2.jpg" width="100%" align="bottom"/>
 
 
-| 权限策略名称 | 备注 |
-| --- | --- |
-| AliyunECSFullAccess | 管理云服务器服务（ECS）的权限 |
 
-```
+## 新建ECS实例部署
 
-## 部署流程
+新建ECS实例部署支持Linux操作系统。
 
-### 部署步骤
-
-`(部署步骤内容)`
-
-```
-eg:
-
-1. 单击部署链接，进入服务实例部署界面，根据界面提示，填写参数完成部署。
-2. 补充示意图。
-```
-### 部署参数说明
-
-`(部署参数说明内容)`
-
-```
-eg:
-
-您在创建服务实例的过程中，需要配置服务实例信息。下文介绍云XR实时渲染平台服务实例输入参数的详细信息。
-
-| 参数组 | 参数项 | 示例 | 说明 |
-| --- | --- | --- | --- |
-| 服务实例名称 |  | test | 实例的名称 |
-| 地域 |  | 华北2（北京） | 选中服务实例的地域，建议就近选中，以获取更好的网络延时。 |
-```
-
-### 验证结果
-
-`(验证结果内容)`
-
-```
-eg:
-
-1. 查看服务实例。服务实例创建成功后，部署时间大约需要2分钟。部署完成后，页面上可以看到对应的服务实例。 
-2. 通过服务实例访问TuGraph。进入到对应的服务实例后，可以在页面上获取到web、rpc、ssh共3种使用方式。
-```
-
-### 使用Demo
-
-`(服务使用说明内容)`
-
-```
-eg:
-
-请访问Demo官网了解如何使用：[使用文档](https://www.aliyun.com)
-```
-
-## 问题排查
-
-`(服务使用说明内容)`
-
-```
-eg:
-
-请访问[Demo的问题排查链接](https://www.aliyun.com)获取帮助。
-```
-
-## 联系我们
-
-欢迎访问Demo官网（[https://www.aliyun.com](https://www.aliyun.com)）了解更多信息。
-
-联系邮箱：[https://www.aliyun.com](mailto:https://www.aliyun.com)
-
-社区版开源地址：[https://github.com/](https://github.com/)
-
-扫码关注微信公众号，技术博客、活动通知不容错过：
-
-`(添加二维码图片)`
+### 操作步骤
+1. 单击[部署链接](https://computenest.console.aliyun.com/service/instance/create/default?type=user&ServiceName=PHP%20%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83)，进入服务实例部署界面。
+2. 选择新建ECS实例并根据界面提示配置参数，配置完成后点击下一步：确认订单。
+    <img src="3.jpg" width="100%" align="bottom"/>
+3. 点击立即创建，等待服务实例创建完成。服务实例创建成功后，进入服务实例资源页。
+    <img src="4.jpg" width="100%" align="bottom"/>
+4. 在ECS中执行命令查看Docker安装结果。
+    ```shell
+    php -v
+    ```
+    <img src="5.jpg" width="100%" align="bottom"/>
