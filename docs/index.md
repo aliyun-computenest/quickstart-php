@@ -20,7 +20,7 @@ PHP运行环境在计算巢上部署的费用主要涉及：
 
 ## RAM账号所需权限
 
-PHP运行环境需要对ECS、VPC等资源进行访问和创建操作，若您使用RAM用户创建服务实例，需要在创建服务实例前，对使用的RAM用户的账号添加相应资源的权限。添加RAM权限的详细操作，请参见[为RAM用户授权](https://help.aliyun.com/document_detail/121945.html)
+部署PHP运行环境需要对ECS、VPC等资源进行访问和创建操作，若您使用RAM用户创建服务实例，需要在创建服务实例前，对使用的RAM用户的账号添加相应资源的权限。添加RAM权限的详细操作，请参见[为RAM用户授权](https://help.aliyun.com/document_detail/121945.html)
 。所需权限如下表所示。
 
 | 权限策略名称                          | 备注                         |
@@ -45,8 +45,6 @@ PHP运行环境需要对ECS、VPC等资源进行访问和创建操作，若您�
     <img src="1.jpg" width="100%" align="bottom"/>
 3. 点击 立即创建，等待服务实例创建完成。服务实例创建成功后，进入服务实例详情页。在概览页可获取安装日志。 
     <img src="2.jpg" width="100%" align="bottom"/>
-
-
 
 ## 新建ECS实例部署
 
