@@ -16,6 +16,7 @@ Parameters:
       OSType: linux
       NetworkType: vpc
       DisabledStatus: true
+      PackageName: ACS-Extension-php-1853370294850618
 Resources:
   Execution:
     Type: 'ALIYUN::OOS::Execution'
