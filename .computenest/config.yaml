@@ -3,21 +3,21 @@ Service:
   DeployMetadata:
     SupplierDeployMetadata:
       SupplierTemplateConfigs:
-        - Name: 选择ECS实例（Linux）
-          Url: ros_templates/template-select-ecs.yaml
-          PredefinedParameters: []
-        - Name: 新建ECS实例
-          Url: ros_templates/template-create-ecs.yaml
-          PredefinedParameters: []
-    TemplateConfigs:
       - Name: 选择ECS实例（Linux）
         Url: ros_templates/template-select-ecs.yaml
         PredefinedParameters: []
-        DeployScene: ECS
       - Name: 新建ECS实例
         Url: ros_templates/template-create-ecs.yaml
         PredefinedParameters: []
-        DeployScene: ECS
+    TemplateConfigs:
+    - Name: 选择ECS实例（Linux）
+      Url: ros_templates/template-select-ecs.yaml
+      PredefinedParameters: []
+      DeployScene: ECS
+    - Name: 新建ECS实例
+      Url: ros_templates/template-create-ecs.yaml
+      PredefinedParameters: []
+      DeployScene: ECS
     NetworkMetadata:
       EnablePrivateVpcConnection: false
       EnableReversePrivateVpcConnection: false
@@ -33,18 +33,12 @@ Service:
         EnablePrometheus: false
   ServiceType: private
   ServiceInfo:
-    - Agreements: []
-      Image: resources/icons/service_logo.png
-      Locale: zh-CN
-      Name: PHP 运行环境
-      ShortDescription: PHP是Hypertext Preprocessor(超文本预处理器)的缩写，源自于“PHP/FI”的工程，在它的起源初期主要用于统汁自己网站的访问者，后来用c语言进行了重新编写，拥有了自己的访问文件和数据库功能。
-      Softwares: []
-    - Agreements: []
-      Image: resources/icons/service_logo.png
-      Locale: en-US
-      Name: PHP Runtime Environment
-      ShortDescription: PHP is the abbreviation of Hypertext Preprocessor, which originated from the "PHP/FI" project. In its early days, it was mainly used to manage visitors to its own website. Later, it was rewritten in C language and had its own access file and database functions.
-      Softwares: []
+  - Locale: zh-CN
+    Name: aliyun-computenest/quickstart-php-kbk8
+    ShortDescription: Service description
+    Image: 
+      https://service-info-public.oss-cn-hangzhou.aliyuncs.com/1853370294850618/service-image/bfd30cc4-e959-4093-b5cb-77a05058b911.png
+    Softwares: []
   ShareType: Public
   ApprovalType: Manual
 Artifact: {}
