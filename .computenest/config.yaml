@@ -1,16 +1,50 @@
 Service:
-  RegionId: cn-hangzhou
   DeployType: ros
   DeployMetadata:
-    ServiceInstanceNameRule:
-      Prefix: PHP-
+    SupplierDeployMetadata:
+      SupplierTemplateConfigs:
+        - Name: 选择ECS实例（Linux）
+          Url: ros_templates/template-select-ecs.yaml
+          PredefinedParameters: []
+        - Name: 新建ECS实例
+          Url: ros_templates/template-create-ecs.yaml
+          PredefinedParameters: []
     TemplateConfigs:
       - Name: 选择ECS实例（Linux）
-        Url: 'ros_templates/template-select-ecs.yaml'
+        Url: ros_templates/template-select-ecs.yaml
+        PredefinedParameters: []
+        DeployScene: ECS
       - Name: 新建ECS实例
-        Url: 'ros_templates/template-create-ecs.yaml'
+        Url: ros_templates/template-create-ecs.yaml
+        PredefinedParameters: []
+        DeployScene: ECS
+    NetworkMetadata:
+      EnablePrivateVpcConnection: false
+      EnableReversePrivateVpcConnection: false
+    ServiceInstanceNameRule:
+      Prefix: PHP-
+      UseDefaultValue: false
+  OperationMetadata:
+    SupportBackup: false
+    PrometheusConfigMap:
+      选择ECS实例（Linux）:
+        EnablePrometheus: false
+      新建ECS实例:
+        EnablePrometheus: false
   ServiceType: private
   ServiceInfo:
-    Locale: zh-CN
-    ShortDescription: PHP是Hypertext Preprocessor(超文本预处理器)的缩写，源自于“PHP/FI”的工程，在它的起源初期主要用于统汁自己网站的访问者，后来用c语言进行了重新编写，拥有了自己的访问文件和数据库功能。
-    Image: 'resources/icons/service_logo.png'
+    - Agreements: []
+      Image: resources/icons/service_logo.png
+      Locale: zh-CN
+      Name: PHP 运行环境
+      ShortDescription: PHP是Hypertext Preprocessor(超文本预处理器)的缩写，源自于“PHP/FI”的工程，在它的起源初期主要用于统汁自己网站的访问者，后来用c语言进行了重新编写，拥有了自己的访问文件和数据库功能。
+      Softwares: []
+    - Agreements: []
+      Image: resources/icons/service_logo.png
+      Locale: en-US
+      Name: PHP Runtime Environment
+      ShortDescription: PHP is the abbreviation of Hypertext Preprocessor, which originated from the "PHP/FI" project. In its early days, it was mainly used to manage visitors to its own website. Later, it was rewritten in C language and had its own access file and database functions.
+      Softwares: []
+  ShareType: Public
+  ApprovalType: Manual
+Artifact: {}
